@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Lab 5 example - 3</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <table>
+            <tr>
+                <th>Student</th>
+                <th>English</th>
+                <th>Math</th>
+            </tr>
+            <tr v-for="(ele,i) in classroom">
+                <td> {{ ele.name }}</td>
+                <td> {{ ele.english }}</td>
+                <td> {{ ele.math }}</td>
+                <td><button @click="removeStudent(ele,i)">Delete</button></td>
+            </tr>
+        </table>
+
+        <input v-model="student.name"></input>
+        <input v-model="student.english"></input>
+        <input v-model="student.math"></input>
+        <button @click="addStudent">Add student!</button>
+        <input v-model="classroom[0].name"></input>
+        <input v-model="classroom[0].name"></input>
+        <input v-model="classroom[0].name"></input>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        var app = new Vue({
+            el: "#app",
+            data: () => ({
+                classroom: [
+                    { name: "Alfred", english: 70, math: 25 },
+                    { name: "Betty", english: 30, math: 80 },
+                    { name: "Carl", english: 45, math: 90 }
+                ],
+                student: {
+                    name: "Name",
+                    english: 0,
+                    math: 0
+                },
+            }),
+            methods: {
+                addStudent() {
+                    this.classroom.push(this.student);
+                    this.student = { name: "Name", english: 0, math: 0 };
+                },
+                removeStudent(ele, i){
+                    this.classroom.splice(i,1)
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html>
+<head>
+<title>Lab 5 example - 1</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{ message }}</h2>
+    <h5>{{msg2}}</h5>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+var app = new Vue({
+  el: "#app",
+  data: () => ({
+    message: 'Hello World',
+    msg2: "Another line of text"
+  })
+})
+
+</script>
+</body>
+</html>
